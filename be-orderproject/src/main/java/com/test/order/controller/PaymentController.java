@@ -59,5 +59,17 @@ public class PaymentController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@RequestMapping(value = "/deleteRule/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Long> deleteRule(@PathVariable Long id) {
+		Long returnId= paymentCreationService.deleteRule(id);
+		if(returnId!=null) {
+			return new ResponseEntity<Long>(id, HttpStatus.OK);
+
+		}else {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+		}
+	}
 
 }

@@ -36,8 +36,8 @@ public class PaymentCreationServiceImpl implements PaymentCreationService {
 		}
 		List<PaymentRuleDto> listofPaymentRuleDto = new ArrayList<PaymentRuleDto>();
 		for (int i = 0; i < paymentRules.size(); i++) {
-			PaymentRuleDto paymentRuleDto = new PaymentRuleDto(
-					paymentRules.get(i).getRuleName(), paymentRules.get(i).getAction());
+			PaymentRuleDto paymentRuleDto = new PaymentRuleDto(paymentRules.get(i).getRuleName(),
+					paymentRules.get(i).getAction());
 			listofPaymentRuleDto.add(paymentRuleDto);
 		}
 		return listofPaymentRuleDto;
@@ -60,6 +60,18 @@ public class PaymentCreationServiceImpl implements PaymentCreationService {
 			return null;
 		}
 
+	}
+
+	@Override
+	public Long deleteRule(Long id) {
+		try {
+			paymentRulesDao.deleteById(id);
+			return id ;
+
+		} catch (NullPointerException e) {
+			return null;
+		}
+		
 	}
 
 }

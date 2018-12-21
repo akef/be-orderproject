@@ -9,4 +9,5 @@ public interface PaymentCreationService {
 	boolean createRule(PaymentRuleDto paymentRuleDto);
 	List<PaymentRuleDto> getAllRules();
 	PaymentRuleDto changeRule(PaymentRuleDto paymentRuleDto,Long id);
+	Long deleteRule(Long id);
 }
